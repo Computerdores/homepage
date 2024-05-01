@@ -14,9 +14,9 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Home # the main title
 
-tagline: The personal homepage of Jann Stute. # it will display as the sub-title
+tagline: Personal homepage of Jann Stute. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   The personal Homepage of Jann Stute.
@@ -76,7 +76,7 @@ theme_mode: # [light | dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: /assets/profile.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.

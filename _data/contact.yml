@@ -22,7 +22,7 @@
 # - type: linkedin
 #   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
 #   url:  ''                  # Fill with your Linkedin homepage
-#
-# - type: stack-overflow
-#   icon: 'fab fa-stack-overflow'
-#   url:  ''                  # Fill with your stackoverflow homepage
+
+- type: stack-overflow        # nicht clean aber egal
+  icon: 'fab fa-gitlab'
+  url:  'https://gitlab.com/JannStute'
