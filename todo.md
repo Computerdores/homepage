@@ -1,0 +1,3 @@
+- change title of blog because of share links
+- clean up the gitlab socials link
+- fix comments
