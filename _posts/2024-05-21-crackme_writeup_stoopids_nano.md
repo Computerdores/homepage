@@ -1,5 +1,6 @@
 ---
-title: "Write-up: stoopid's nano crackme"
+title: "Write-up: Stoopid's 'nano'"
+description: "A write-up for a crackme involving assembly level obfuscation and cross process fault handling."
 date: 2024-05-21
 categories: ["Write-Ups", "CrackMes"]
 tags: [crackmes.one, stoopid]
