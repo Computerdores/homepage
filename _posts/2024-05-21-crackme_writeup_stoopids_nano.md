@@ -1,11 +1,3 @@
----
-title: "Write-up: Stoopid's 'nano'"
-description: "A write-up for a crackme involving assembly level obfuscation and cross process fault handling."
-date: 2024-05-21
-categories: ["Write-Ups", "CrackMes"]
-tags: [crackmes.one, stoopid]
----
-
 This is my solution to the "nano" crackme which was created by Stoopid for 0xL4ugh CTF 2024. You can find it on [crackmes.one](https://crackmes.one/crackme/65e5f417199e6a5d372a4045).
 
 ## Step 1: Just run it
@@ -223,9 +215,8 @@ int main(int argc,char **argv,char **envp,int param_4) {
     exit(0);
 }
 ```
-
+> **WARNING**
 > Since we are modifying the binary, we will have to make sure to validate the flag with the original unmodifed file.
-{: .prompt-warning}
 
 Now that the cpde isn't wrong anymore, it is time to understand what it does.
 
@@ -313,8 +304,8 @@ int main(int argc,char **argv) {
     exit(0);
 }
 ```
+> **TIP**
 > If Ghidra doesn't let you set an Equate, try to set it on the value in the Assembly listing and re-create the function.
-{: .prompt-tip}
 
 Looking at this now, it appears that the parent process waits for status changes in the child and then, if some conditions apply, modifies the register contents before continuing the child process.
 
@@ -331,8 +322,8 @@ while (waitpid(pid, &wstatus, 0), WTERMSIG(wstatus) != 0) {
     }
 }
 ```
+> **NOTE**
 > The `SIGSEGV` macro is included via `signal.h`.
-{: .prompt-info}
 
 Looking at this the general behaviour of the parent process should be easy to understand: It waits until the child process is stopped, modifies its registers only if it was stopped because of a segfault (remember that weird instruction that always triggers a segfault? That seems to trigger this handler) and continues its execution again.
 
@@ -437,3 +428,7 @@ Which we can validate on the unpatched binary like so:
 > ./nano 0xL4ugh{3z_n4n0mites_t0_g3t_st4rt3d}
 yes
 ```
+
+Thanks for reading!
+
+If you have any feedback or want to share some thoughts, feel free to do so on my blog: [Write-up: Stoopid's 'nano'](https://jann.stute.dev/posts/crackme_writeup_stoopids_nano/).
